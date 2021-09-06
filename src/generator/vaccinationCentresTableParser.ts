@@ -1,4 +1,4 @@
-import cheerio from "cheerio";
+import cheerio, { Element } from "cheerio";
 import { ParsedTableEntry, parseTableToJSON } from './tableParser'
 
 import provinces from './provinces'
@@ -32,7 +32,7 @@ export default function parse(htmlExportedFile: string) {
   return flatten(tables)
 }
 
-function parseTable(table: cheerio.Element, index: number): ParsedTable {
+function parseTable(table: Element, index: number): ParsedTable {
   const anchorElementHtml = cheerio(table).prev("a").html();
 
   if (!anchorElementHtml) {

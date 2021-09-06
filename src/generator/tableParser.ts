@@ -1,5 +1,5 @@
 import debug from 'debug'
-import cheerio from 'cheerio'
+import cheerio, { Element } from 'cheerio'
 
 const tableParserDebug = debug('tableParser')
 
@@ -28,13 +28,13 @@ function applyRowToHeader(header: string[], row: string[]) {
 }
 
 
-function parseRow(row: cheerio.Element) {
+function parseRow(row: Element) {
     return cheerio('td', row)
         .toArray()
         .map((element, index) => cheerio(element).text())
 }
 
-export function parseTableToJSON(table: cheerio.Element): ParsedTableEntry[] {
+export function parseTableToJSON(table: Element): ParsedTableEntry[] {
     const rows = cheerio('tr', table).toArray()
     const header = parseRow(rows[0])
 

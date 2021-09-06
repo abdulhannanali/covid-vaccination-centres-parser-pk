@@ -22,7 +22,7 @@ const basicPlacesFields = [
     'place_id'
 ]
 
-export async function fetchGooglePlacesResponse(rawVaccinationCentre: RawVaccinationCentre) {
+export async function fetchGooglePlacesResponse(rawVaccinationCentre: RawVaccinationCentre): Promise<Place[]> {
     const client = new Client({})
 
     const inputOptions = [
@@ -68,3 +68,5 @@ function acquireCandidates (responses: FindPlaceFromTextResponse[]): Place[] {
             .filter(candidates => candidates)
     ).filter(place => place?.place_id)
 }
+
+export { Place as Place } from '@googlemaps/google-maps-services-js'

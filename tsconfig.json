@@ -4,7 +4,7 @@
         "module": "commonjs",
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
-        "target": "es6",
+        "target": "es3",
         "noImplicitAny": true,
         "moduleResolution": "node",
         "sourceMap": true,
@@ -15,7 +15,9 @@
                 "node_modules/*",
                 "src/types/*"
             ]
-        }
+        },
+
+        "declaration": true
     },
     "include": [
         "src/**/*"
