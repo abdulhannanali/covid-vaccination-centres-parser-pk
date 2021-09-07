@@ -1,12 +1,13 @@
 {
   "name": "@abdulhannanali/vaccination-centres-parser",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Parsed vaccination centres from raw files for usage in an application",
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
+  "types": "dist/src/index.d.ts",
+  "main": "dist/src/index.js",
   "scripts": {
-    "build": "rm -rf dist && tsc src/**/*.ts",
+    "build": "rm -rf dist && tsc",
     "watch": "tsc --watch",
+    "prepublish": "npm run build",
     "lint": "tslint --project ./",
     "lint:fix": "tslint --project ./ --fix",
     "test": "npm run build && jest"
