@@ -1,9 +1,10 @@
 import store from '../store/1.0.3.json' 
 
 import { uniqBy } from 'ramda'
-import { VaccinationCentre } from './VaccinationCentre'
+import { VaccinationCentre, Place } from './VaccinationCentre'
 import { VaccinationCity } from './VaccinationCity'
 
+export { VaccinationCentre, VaccinationCity, Place }
 
 export type FilterData = {
     districts: string[];
