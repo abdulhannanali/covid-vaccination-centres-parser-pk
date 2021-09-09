@@ -1,6 +1,6 @@
 {
   "name": "@abdulhannanali/vaccination-centres-parser",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "Parsed vaccination centres from raw files for usage in an application",
   "types": "dist/src/index.d.ts",
   "main": "dist/src/index.js",
