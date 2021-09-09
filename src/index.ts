@@ -1,4 +1,4 @@
-import store from '../store/1.0.3.json' 
+import store from '../store/1.0.7.json' 
 
 import { uniqBy } from 'ramda'
 import { VaccinationCentre, Place } from './VaccinationCentre'
@@ -13,7 +13,7 @@ export type FilterData = {
     designations: string[];
 }
 
-const currentVersion = '1.0.3'
+const currentVersion = '1.0.7'
 
 export function getAllVaccinationCentres () {
     return store.vaccinationCentres as VaccinationCentre[]

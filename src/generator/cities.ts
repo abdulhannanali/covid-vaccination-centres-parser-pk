@@ -9,7 +9,7 @@ export default function getCities (vaccinationCentres: VaccinationCentre[]): Vac
         const cityHash = getCityHash(centre)
 
         const city: VaccinationCity = acc[cityHash] || {
-            id: cityHash,
+            id: centre.baseVaccinationCentre.district + centre.baseVaccinationCentre.tehsil,
             district: centre.baseVaccinationCentre.district,
             tehsil: centre.baseVaccinationCentre.tehsil,
             province: centre.baseVaccinationCentre.province,
@@ -26,8 +26,7 @@ export default function getCities (vaccinationCentres: VaccinationCentre[]): Vac
 
 function getCityHash(vaccinationCentre: VaccinationCentre): string {
     return createHash('sha256')
-        .update(vaccinationCentre.baseVaccinationCentre.district)
-        .update(vaccinationCentre.baseVaccinationCentre.tehsil)
+        .update(vaccinationCentre.baseVaccinationCentre.district || "")
+        .update(vaccinationCentre.baseVaccinationCentre.tehsil || "")
         .digest('base64')
-
 }

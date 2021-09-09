@@ -41,7 +41,7 @@ function parseTable(table: Element, index: number): ParsedTable {
   }
 
   const province = provinces.find((province) => {
-    return anchorElementHtml.toLowerCase().indexOf(province) !== -1;
+    return anchorElementHtml.toLowerCase().indexOf(province.toLowerCase()) !== -1;
   });
 
   if (province) {

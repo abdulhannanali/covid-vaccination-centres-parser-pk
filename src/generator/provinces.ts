@@ -4,5 +4,6 @@ export default [
     "gb",
     "islamabad",
     "kpk",
+    "sindh",
     "punjab"
 ]
