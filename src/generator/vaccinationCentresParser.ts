@@ -43,6 +43,7 @@ function resolveTableEntry (province: string, tableEntry: ParsedTableEntry): Raw
 
         if (resolvedField === undefined) {
             centresParserDebug('Skipping as no resolved field is found')
+            centresParserDebug('field = ' + key)
             continue
         }
 
@@ -50,28 +51,36 @@ function resolveTableEntry (province: string, tableEntry: ParsedTableEntry): Raw
     }
 
 
-    if (newObject.district && !newObject.district) {
-        newObject.district = newObject.tehsil
+    if (!('tehsil' in newObject) || !('district' in newObject)) {
+        if ('tehsil' in newObject) {
+            newObject.tehsil = newObject.tehsil
+            newObject.district = newObject.tehsil
+        } else {
+            newObject.district = newObject.district
+            newObject.tehsil = newObject.district
+        }
+
     }
 
-    if (newObject.tehsil && !newObject.tehsil) {
-        newObject.tehsil = newObject.district
-    }
-
-    if (!newObject.designation) {
-        newObject.designation = 'all'
-    }
+    newObject.designation = 'all'
 
     const keysNotPresent = RawVaccinationCentreKeys.filter(key => {
-        return !(key in newObject)
+        return !(key in newObject) && key !== 'contact'
     })
 
     if (keysNotPresent.length) {
-        localDebug('Following keys are not present in an entry so skipping ->' + JSON.stringify(keysNotPresent))
+        centresParserDebug('Following keys are not present in an entry so skipping ->' + JSON.stringify(keysNotPresent))
+        centresParserDebug(newObject)
         return undefined
     }
 
-    return newObject as RawVaccinationCentre
+
+
+
+    const x =  newObject as RawVaccinationCentre
+
+
+    return x
 }
 
 

@@ -33,7 +33,7 @@ export default function parse(htmlExportedFile: string) {
 }
 
 function parseTable(table: Element, index: number): ParsedTable {
-  const anchorElementHtml = cheerio(table).prev("a").html();
+  const anchorElementHtml = index === 0 ? "ajk" : cheerio(table).prev().text();
 
   if (!anchorElementHtml) {
     htmlToRawJSONDebug('anchorElementHTML not provided')
@@ -41,8 +41,11 @@ function parseTable(table: Element, index: number): ParsedTable {
   }
 
   const province = provinces.find((province) => {
-    return anchorElementHtml.toLowerCase().indexOf(province.toLowerCase()) !== -1;
+    return anchorElementHtml.toLowerCase().match(new RegExp(province, 'ig')) !== null;
   });
+
+  console.log(anchorElementHtml)
+  console.log(province)
 
   if (province) {
     return {

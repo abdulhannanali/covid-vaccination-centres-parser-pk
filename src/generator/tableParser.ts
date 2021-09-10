@@ -13,18 +13,12 @@ export interface ParsedTableEntry {
 function applyRowToHeader(header: string[], row: string[]) {
     const acc: { [key: string]: string } = {}
 
-    if (header.length !== row.length) {
-        tableParserDebug(`
-        Header length does not match row length
-        header.length: ${header.length}
-        row.length: ${row.length}
-      `)
+    for (let i = 0; i < header.length; i++) {
+        const column = header[i]
+        acc[column] = row[i]
     }
 
-    return header.reduce((acc, column, index) => {
-        acc[column] = row[index]
-        return acc
-    }, acc)
+    return acc
 }
 
 
