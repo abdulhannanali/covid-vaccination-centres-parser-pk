@@ -1,7 +1,7 @@
 {
   "name": "covid-vaccination-centres-parser-pk",
   "version": "1.0.12",
-  "repository": {},
+  "repository": "https://github.com/abdulhannanali/covid-vaccination-centres-parser-pk",
   "description": "Parsed vaccination centres from raw files for usage in an application",
   "types": "dist/src/index.d.ts",
   "main": "dist/src/index.js",
