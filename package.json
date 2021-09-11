@@ -1,6 +1,6 @@
 {
-  "name": "@abdulhannanali/vaccination-centres-parser",
-  "version": "1.0.10",
+  "name": "covid-vaccination-centres-pk",
+  "version": "1.0.12",
   "description": "Parsed vaccination centres from raw files for usage in an application",
   "types": "dist/src/index.d.ts",
   "main": "dist/src/index.js",
@@ -11,9 +11,6 @@
     "lint": "tslint --project ./",
     "lint:fix": "tslint --project ./ --fix",
     "test": "npm run build && jest"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
   },
   "keywords": [],
   "author": "",
